@@ -15,11 +15,13 @@ const UseRef = (props) => {
     useEffect(() => {
         count.current++;
         otherInput.current.focus()
+        setMergedValues([...value].map((caracter, index) => `${caracter}${otherValue[index] || ""}`))
     }, [value])
 
     useEffect(() => {
         count.current++;
         input.current.focus()
+        setMergedValues([...value].map((caracter, index) => `${caracter}${otherValue[index] || ""}`))
     }, [otherValue])
 
     return (
@@ -44,7 +46,6 @@ const UseRef = (props) => {
                     value={value} 
                     onChange={event => {
                         setValue(event.target.value)
-                        setMergedValues(mergedValues + event.target.value[event.target.value.length - 1])
                     }}
                     ref={input}
                     />
@@ -59,7 +60,6 @@ const UseRef = (props) => {
                     value={otherValue} 
                     onChange={event => {
                         setOtherValue(event.target.value)
-                        setMergedValues(mergedValues + event.target.value[event.target.value.length - 1])
                     }}
                     ref={otherInput}
                     />
