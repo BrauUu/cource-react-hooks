@@ -2,7 +2,7 @@ import React from 'react'
 
 export const data = {
     number: 41,
-    string: 'Hi mom',
+    string: 'Hi mom!',
     boolean: false
 }
 
