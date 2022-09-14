@@ -5,6 +5,7 @@ import { data, DataContext } from '../data/DataContext'
 
 import Menu from '../components/layout/Menu'
 import Content from '../components/layout/Content'
+import Store from '../data/Store'
 
 const App = props => {
 
@@ -12,12 +13,14 @@ const App = props => {
 
     return (
         <div className="App">
-            <DataContext.Provider value={{state, setState}}>
-                <Router>
-                    <Menu />
-                    <Content />
-                </Router>
-            </DataContext.Provider>
+            <Store>
+                <DataContext.Provider value={{ state, setState }}>
+                    <Router>
+                        <Menu />
+                        <Content />
+                    </Router>
+                </DataContext.Provider>
+            </Store>
         </div>
     )
 }
