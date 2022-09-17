@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useReducer } from 'react';
 import PageTitle from '../../components/layout/PageTitle'
-import { InitialState, reducer } from '../../store/config'
+import { InitialState, reducer, addN } from '../../store/config'
 
 const UseReducer = (props) => {
 
@@ -28,7 +28,7 @@ const UseReducer = (props) => {
                     { state.number }
                 </span>
                 <div>
-                    <button className="btn" onClick={() => dispatch({type: 'addN', payload: {number: 2}})}>
+                    <button className="btn" onClick={() => addN(dispatch, 2)}>
                         +2
                     </button>
                     <button className="btn" onClick={() => dispatch({type: 'multiply7'})}>
@@ -40,7 +40,7 @@ const UseReducer = (props) => {
                     <button className="btn" onClick={() => dispatch({type: 'parseToInt'})}>
                         Parse to Int
                     </button>
-                    <button className="btn" onClick={() => dispatch({type: 'addN', payload: {number: Number(numberN)}})}>
+                    <button className="btn" onClick={() => addN(dispatch, Number(numberN))}>
                         +N
                     </button>
                     <button className="btn" onClick={() => dispatch({type: 'login', payload: {name: 'brau'}})}>
